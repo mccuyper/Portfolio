@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<!-- Page Title Starts -->
+<section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1">
+   <a href="{% url 'blog' %}"> <h1>my <span>blog</span></h1>
+    <span class="title-bg">posts</span></a>
+</section>
+<!-- Page Title Ends -->
+<!-- Main Content Starts -->
+<section class="main-content revealator-slideup revealator-once revealator-delay1">
+    <div class="container">
+        <div class="row">
+            <!-- Article Starts -->
+            <article class="col-12">
+                <!-- Meta Starts -->
+                <div class="meta open-sans-font">
+                    <span><i class="fa fa-user"></i> {{ object.author }}</span>
+                    <span class="date"><i class="fa fa-calendar"></i> {{ object.date|date:"F d, Y" }}</span>
+                    <span><i class="fa fa-tags"></i>{{object.technologies}}</span>
+                </div>
+                <!-- Meta Ends -->
+                <!-- Article Content Starts -->
+                <h1 class="text-uppercase text-capitalize"> {{ object.title }}</h1>
+                <img src="{{object.image.url}}" class="img-fluid" alt="Blog image"/>
+                <div class="blog-excerpt open-sans-font pb-5">
+                    <p>{{object.content}}</p>
+                </div>
+                <!-- Article Content Ends -->
+            </article>
+            <!-- Article Ends -->
+        </div>
+    </div>
+</section>
+{% endblock %}
